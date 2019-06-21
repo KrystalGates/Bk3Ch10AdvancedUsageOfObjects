@@ -113,3 +113,16 @@ const salesByWeek = [
 // Display the gross profit made on the sale.
 
 // Here's your first data structure for the sales made last week. You will need to start off by iterating the array of sales with a forEach() method. Then iterate the entries of the vehicle property of each sale.
+
+const getValues = Object.values(salesByWeek)
+console.log(getValues)
+
+const carSaleContainer = document.querySelector("#container")
+
+salesByWeek.forEach(car => {
+   carSaleContainer.innerHTML += `<div>${car.sales_agent.first_name} ${car.sales_agent.last_name} </div>`
+   for (const entry of Object.entries(car["vehicle"])){
+    carSaleContainer.innerHTML += `<div>${entry[0]}: ${entry[1]}</div>`
+   }
+   carSaleContainer.innerHTML += `<div>Gross profit: $${car.gross_profit} <hr/>`
+    })
